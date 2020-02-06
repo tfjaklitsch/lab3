@@ -50,7 +50,7 @@ the x and y coordinates. *)
 
 type point_recd = {x : int; y : int} ;;
 
-let r = {x = 1; y = 3};;
+let r = {x = 1; y = 3} ;;
 
 (*......................................................................
 Exercise 2A: 
@@ -59,8 +59,8 @@ Replace the two lines below with a single let expression that extracts
 the x and y coordinate values from `r` into `x1` and `y1`.
 ......................................................................*)
 
-let x1 = 0;;
-let y1 = 0;;
+let x1 = 0 ;;
+let y1 = 0 ;;
                    
 (*......................................................................
 Exercise 2B: 
@@ -200,10 +200,10 @@ Exercise 10: In Lab 2, you implemented a function `zip` that takes two
 lists and "zips" them together into a list of pairs. Here's a possible
 implementation of `zip`:
 
-let rec zip (x : int list) (y : int list) : (int * int) list =
-  match x, y with
-  | [], [] -> []
-  | xhd :: xtl, yhd :: ytl -> (xhd, yhd) :: (zip xtl ytl) ;;
+  let rec zip (x : int list) (y : int list) : (int * int) list =
+    match x, y with
+    | [], [] -> []
+    | xhd :: xtl, yhd :: ytl -> (xhd, yhd) :: (zip xtl ytl) ;;
 
 As implemented, this function works only on integer lists. Revise your
 solution to operate polymorphically on lists of any type. What is the
@@ -247,10 +247,11 @@ let partition =
 
 (*......................................................................
 Exercise 12: We can think of function application itself as a
-higher-order function (!). It takes two arguments -- a function and
+higher-order function (!!!). It takes two arguments -- a function and
 its argument -- and returns the value obtained by applying the
 function to its argument. In this exercise, you'll write this
-function, called "apply". You might use it as in the following examples:
+function, called "apply". You might use it as in the following
+examples:
 
     # apply pred 42 ;;
     - : int = 41
@@ -271,17 +272,20 @@ backwards application operator -- in Chapter 11 of the textbook.)
 Start by thinking about the type of the function. We'll assume it
 takes its two arguments curried, that is, one at a time.
 
-What is the most general (polymorphic) type for its first argument
-(the function to be applied)?
+1. What is the most general (polymorphic) type for its first argument
+   (the function to be applied)?
 
-What is the most general type for its second argument (the argument to
-apply it to)?
+2. What is the most general type for its second argument (the argument
+   to apply it to)?
 
-What is the type of its result?
+3. What is the type of its result?
 
-Given the above, what should the type of the function "apply" be?
+4. Given the above, what should the type of the function `apply` be?
 
 Now write the function.
+
+Can you think of a reason that the `apply` function might in fact be
+useful?
 ......................................................................*)
 
 let apply =
